@@ -4,12 +4,27 @@
 	<title></title>
 </head>
 <body>
-Bienvidos al juego Pica-Shu
+
 <form action="/validar" method="POST">
-<input type="text" name="numero">
-<input type="submit" value="validar">
-<br>
-<%= session['numeros']%>
+
+<table align="center" border="0" >
+	<tr>
+		<td>
+			Bienvidos al juego Pica-Shu
+		</td>
+	</tr>
+	<tr>
+		<td>
+			
+			<input type="text" name="numero">
+			<input type="submit" value="validar">
+			<br>
+			<%= session['numeros']%>
+
+		</td>
+	</tr>
+</table>
+
 </form>
 </body>
 </html>

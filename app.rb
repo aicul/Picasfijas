@@ -9,9 +9,7 @@ get '/' do
 	erb(:index)
 end
 
-get '/iniciar' do
-	session["numero1"] = "murcielago"
-	session["numeros"] = ""
+post '/iniciar' do
 	erb(:juego)
 end
 
