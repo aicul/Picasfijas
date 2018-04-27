@@ -22,7 +22,7 @@ end
 
 post '/validar' do
 	picas = Picas.new	
-	session["intentos"] = session["intentos"] - 1
+	session["intentos"] = (session["picas"].intentos).to_i - 1
 
 	session["numeros"] +=  (session["picas"].validar session["secreto"], params["numero"]).to_s	
 
