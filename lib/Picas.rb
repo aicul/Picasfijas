@@ -30,9 +30,12 @@ INTENTOS=10
 					end
 				end
 		end
+			
+			@intentos = @intentos + 1 
+
 			if @intentos >= INTENTOS
-				"GAME OVER"
-			elsif @fijas == dimesionar(numero1)
+				 "GAME OVER"
+			elsif @fijas == dimensionar(numero1)
 				"YOU WIN"
 			else
 				"#{numero2} - #{@fijas}F #{@picas}P <br>"
@@ -40,8 +43,7 @@ INTENTOS=10
 		else
 			"#{numero2} - NO VALIDA <br>"
 		end
-
-		@intentos = @intentos + 1 
+	
 	end
 
 	def dimensionar palabra
