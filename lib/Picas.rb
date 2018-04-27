@@ -1,6 +1,6 @@
 class Picas
 
-INTENTOS=10
+INTENTOS = 10
 @intentos = 0
 
 	def initialize 
@@ -11,64 +11,85 @@ INTENTOS=10
 
 	def validar numero1, numero2
 
-	arr1 = numero1.chars.to_a
-	arr2 = numero2.chars.to_a
+		mensaje =""
+		@picas = 0
+		@fijas = 0
+		arr1 = numero1.chars.to_a
+		arr2 = numero2.chars.to_a
 	
-		if verificar(arr2) != true			
-			i=0
-			j=0
+	if longitud(numero1, numero2) != true
+			if verificar(arr2) != true			
+				i=0
+				j=0
 
-			arr1.each do |a| 
-				i = i + 1
-				j= 0
-				arr2.each do |b| 
-					j= j + 1
-					if a==b && i == j
-						@fijas =@fijas +1
-					elsif a==b && i != j
-						@picas=@picas +1
+				arr1.each do |a| 
+					i = i + 1
+					j= 0
+					arr2.each do |b| 
+						j= j + 1
+						if a==b && i == j
+							@fijas =@fijas +1
+						elsif a==b && i != j
+							@picas=@picas +1
+						end
 					end
-				end
-		end
-			
-			@intentos = @intentos + 1 
+				end		
 
-			if @intentos >= INTENTOS
-				 "GAME OVER"
-			elsif @fijas == dimensionar(numero1)
-				"YOU WIN"
+				if @intentos >= 10
+					return "GAME OVER"
+				end
+
+				if @fijas == dimensionar(numero1)
+					mensaje = "YOU WIN"
+				else
+					mensaje = "#{numero2} - #{@fijas}F #{@picas}P <br>"
+				end	
+
+				@intentos = @intentos + 1 			
 			else
-				"#{numero2} - #{@fijas}F #{@picas}P <br>"
+				mensaje = "#{numero2} - NO VALIDA <br>"
 			end
 		else
-			"#{numero2} - NO VALIDA <br>"
+			mensaje = "#{numero2} - NO VALIDA <br>"
 		end
-	
+
+		
+
+		return mensaje
 	end
 
 	def dimensionar palabra
-		"#{palabra.size}"
+		palabra.size
 	end	
 
 	def intentos 
-		intentos = (INTENTOS - @intentos).to_s
-		"#{intentos}"
+		return (INTENTOS - @intentos).to_s		
 	end	
 
-	def verificar numero		
-		i=0
-		j=0
-		numero.each do |a| 
-			i = i + 1
-			j= 0
-			numero.each do |b| 
-				j= j + 1
-				if a==b && i!=j
-					return true
+	
+	def verificar palabra	
+		
+			i=0
+			j=0
+			palabra.each do |a| 
+				i = i + 1
+				j= 0
+				palabra.each do |b| 
+					j= j + 1
+					if a==b && i!=j
+						return true
+					end
 				end
 			end
-		end
-		return false
+			return false	
 	end
 
+	def longitud secreto, palabra	
+
+		if secreto.size == palabra.size			
+			return false
+		else
+			return true
+		end
+	end
 end
