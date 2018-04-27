@@ -13,9 +13,9 @@ get '/' do
 end
 
 post '/iniciar' do	
-	if params["nivel"] == "Bajo"
+	if params["niveles"] == "Bajo"
 		session["secreto"] = "tres"
-	elsif params["nivel"] == "Medio"
+	elsif params["niveles"] == "Medio"
 		session["secreto"] = "cuanto"
 	else
 		session["secreto"] = "formidable"
@@ -26,7 +26,7 @@ end
 
 post '/validar' do
 	picas = Picas.new	
-	session["intentos"] = (session["picas"].intentos).to_i - 1
+	session["intentos"] = (session["picas"].intentos).to_i 
 	session["numeros"] +=  (session["picas"].validar session["secreto"], params["numero"]).to_s	
 	erb(:juego)
 end

@@ -6,7 +6,7 @@ INTENTOS = 10
 	def initialize 
 		@picas = 0
 		@fijas = 0
-		@intentos = 1
+		@intentos = 0
 	end
 
 	def validar numero1, numero2
@@ -35,7 +35,9 @@ INTENTOS = 10
 					end
 				end		
 
-				if @intentos >= 10
+				@intentos = @intentos + 1 
+
+				if @intentos >= INTENTOS
 					return "GAME OVER"
 				end
 
@@ -45,7 +47,7 @@ INTENTOS = 10
 					mensaje = "#{numero2} - #{@fijas}F #{@picas}P <br>"
 				end	
 
-				@intentos = @intentos + 1 			
+							
 			else
 				mensaje = "#{numero2} - NO VALIDA <br>"
 			end
