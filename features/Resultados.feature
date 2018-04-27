@@ -18,6 +18,6 @@ Scenario: Cuando ingrese la palabra Cuaderno
 	Then Debo ver "Cuaderno - 1F 4P"
 
 Scenario: Poder ver la pista de la palabra secreta
-	Given Que abri el juego
+	Given que abri el juego
 	When inicie el juego
-	Then Debo ver mensaje de "La palabra secreta tiene 10 caractere(s)"
+	Then Debo ver mensaje de "La palabra secreta tiene 10 caracteres"
