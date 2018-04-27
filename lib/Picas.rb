@@ -1,17 +1,20 @@
 class Picas
 
+INTENTOS=10
+@intentos = 0
 
+	def initialize 
+		@picas = 0
+		@fijas = 0
+		@intentos = 1
+	end
 
 	def validar numero1, numero2
 
 	arr1 = numero1.chars.to_a
 	arr2 = numero2.chars.to_a
-
-	@picas = 0
-	@fijas = 0
-
-		if verificar(arr2) != true
-			
+	
+		if verificar(arr2) != true			
 			i=0
 			j=0
 
@@ -27,16 +30,30 @@ class Picas
 					end
 				end
 		end
-		"#{numero2} - #{@fijas}F #{@picas}P <br>"
+			
+			@intentos = @intentos + 1 
 
+			if @intentos >= INTENTOS
+				 "GAME OVER"
+			elsif @fijas == dimensionar(numero1)
+				"YOU WIN"
+			else
+				"#{numero2} - #{@fijas}F #{@picas}P <br>"
+			end
 		else
-		"#{numero2} - Numero no valido <br>"
+			"#{numero2} - NO VALIDA <br>"
 		end
+	
 	end
 
 	def dimensionar palabra
 		"#{palabra.size}"
-	end
+	end	
+
+	def intentos 
+		intentos = (INTENTOS - @intentos).to_s
+		"#{intentos}"
+	end	
 
 	def verificar numero		
 		i=0

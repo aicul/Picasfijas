@@ -22,6 +22,7 @@ Scenario: Poder ver la pista de la palabra secreta
 	When inicie el juego
 	Then Debo ver mensaje de "La palabra secreta tiene 10 caracteres"
 
+<<<<<<< HEAD
 Scenario: Poder ver cantidad de intentos disponibles
 	Given que abri el juego
 	When inicie el juego
@@ -30,3 +31,5 @@ Scenario: Poder ver cantidad de intentos disponibles
 
 
 
+=======
+>>>>>>> d5fc0a1c7cc1d540101c6abf2eab5e0f70dec58b
