@@ -34,6 +34,10 @@ class Picas
 		end
 	end
 
+	def Dimensionar palabra
+		"#{palabra.size}"
+	end
+
 	def verificar numero		
 		i=0
 		j=0
