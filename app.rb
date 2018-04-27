@@ -6,17 +6,17 @@ require './lib/Picas.rb'
 get '/' do
 	session["secreto"] = "murcielago"
 	session["numeros"] = ""
+	session["picas"] = Picas.new	
 	erb(:index)
 end
 
-post '/iniciar' do
-	picas = Picas.new	
-	session["pista"] = picas.dimensionar session["secreto"]
+post '/iniciar' do	
+	session["pista"] = session["picas"].dimensionar session["secreto"]
 	erb(:juego)
 end
 
 post '/validar' do
 	picas = Picas.new	
-	session["numeros"] +=  (picas.validar session["secreto"], params["numero"]).to_s
+	session["numeros"] +=  (session["picas"].validar session["secreto"], params["numero"]).to_s	
 	erb(:juego)
 end
