@@ -6,7 +6,12 @@ require './lib/Picas.rb'
 get '/' do
 	session["secreto"] = "murcielago"
 	session["numeros"] = ""
+
+	session["intentos"] = 10
+	
+
 	session["picas"] = Picas.new	
+
 	erb(:index)
 end
 
@@ -17,6 +22,10 @@ end
 
 post '/validar' do
 	picas = Picas.new	
+	session["intentos"] = session["intentos"] - 1
+
 	session["numeros"] +=  (session["picas"].validar session["secreto"], params["numero"]).to_s	
+
 	erb(:juego)
 end
+
