@@ -34,7 +34,7 @@ class Picas
 		end
 	end
 
-	def Dimensionar palabra
+	def dimensionar palabra
 		"#{palabra.size}"
 	end
 
